@@ -10,7 +10,7 @@ FROM STATION
 ORDER BY 2, 1
 LIMIT 1
 )
-UNION ALL    -- 정렬하지 않고 합친 뒤 반환
+UNION ALL    -- Not sorting (Apply only sorting in the last SELECT statement)
 (SELECT CITY, CHAR_LENGTH(CITY)
 FROM STATION
 ORDER BY 2 DESC, 1
@@ -21,7 +21,7 @@ LIMIT 1
 #### **PREVIOUS CODE**
 ```MySQL
 /*
-In this code, I use an obscure subquery. 
+In this not-so-beautiful code, I use a subquery. 
 HackerRank system doesn't understand 2 or more separated queries unless UNION them.
 I found out about it late and solved it with a subquery.
 */
