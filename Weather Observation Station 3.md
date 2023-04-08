@@ -22,11 +22,14 @@ ORDER BY CITY;
 
 #### LESSON & LEARN
 
-* `SELECT DISTINCT`
+* `SELECT DISTINCT`   
     : Select the unique values. equal to `unique()` in python.
-* `SELECT DISTINCT <COL> FROM <TABLE> WHERE <COND>`
+    
+* `SELECT DISTINCT <COL> FROM <TABLE> WHERE <COND>`   
     : Select the unique values with condition.
-* `SELECT COUNT(DISTINCT <COL>) FROM <TABLE>`
+    
+* `SELECT COUNT(DISTINCT <COL>) FROM <TABLE>`   
     : Count the unique values. equal to `value_counts()` in python.
-* `MOD(X, Y)`
+    
+* `MOD(X, Y)`   
     : Return the value of (X % Y).
