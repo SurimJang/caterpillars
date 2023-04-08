@@ -1,9 +1,9 @@
 ### **Weather Observation Station 5**
 
-#### **문제**
+#### **PROBLEM**
 > Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
 
-#### **코드**
+#### **CODE**
 ```MySQL
 (SELECT CITY, CHAR_LENGTH(CITY)
 FROM STATION
@@ -18,8 +18,13 @@ LIMIT 1
 )
 ```
 
-#### **과거 풀이**
+#### **PREVIOUS CODE**
 ```MySQL
+/*
+In this code, I use an obscure subquery. 
+HackerRank system doesn't understand 2 or more separated queries unless UNION them.
+I found out about it late and solved it with a subquery.
+*/
 SELECT CITY, LENGTH(CITY) 
 FROM STATION 
 WHERE CITY = (SELECT CITY 
@@ -33,21 +38,21 @@ WHERE CITY = (SELECT CITY
 ORDER BY CITY ASC
 ```
 
-#### **참고**
+#### **LESSON & LEARN**
 
-* 글자수 세기
-    * `LENGTH` : Byte 단위의 길이 반환
-    * `CHAR_LENGTH` : 글자 단위의 길이 반환
-* 집합 연산자
-    * `UNION` : 두 개의 SELECT문 결과값을 합친 값 반환 
-        - 중복 제거
-        - 자동 정렬
-    * `UNION ALL` : 두 개의 SELECT문 결과값을 합친 값 반환 
-        - 중복 허용
-        - 정렬 안함 : 마지막 SELECT문에만 정렬 가능
+* LENGTH
+    * `LENGTH`      -- Return the length in byte unit.
+    * `CHAR_LENGTH` -- Return the length in letter unit. equal to `len()` in python.
 
-* LIMIT, OFFSET
-    * `LIMIT 10` : 행 데이터 10개만 조회하기
-    * `LIMIT 10, OFFSET 10` : 11번째 ~ 20번째 행 데이터 조회
-    * `LIMIT 10, 10` : 11번째 ~ 20번째 행 데이터 조회 (생략)   
-    -- OFFSET: 가져오고자 하는 행 데이터의 시작 지점을 지정하는 옵션으로 0부터 시작
+* SET OPERATORS
+    * `UNION`     -- Returns the sum of the results of two SELECT statements.
+                  -- Note: Sorted with no duplicates
+    * `UNION ALL` -- Returns the sum of the results of two SELECT statements.
+                  -- Note: Not sorting (Apply only sorting in the last SELECT statement)
+
+* LIMIT
+    * `LIMIT 10`  -- Retrieving only 10 rows of data.
+
+* OFFSET : An option to specify the starting point of the row.
+    * `LIMIT 10, OFFSET 10`   -- Retrieving 11th ~ 20th rows of data.
+    * `LIMIT 10, 10`          -- (Same, But simple) 
