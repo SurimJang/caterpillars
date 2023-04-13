@@ -19,7 +19,7 @@ GROUP BY name, hacker_id
 ORDER BY tot_score DESC, hacker_id
 ```
 
-#### **PREVIOUS CODE**
+#### **FAILURE CASE**
 ```MySQL
 --왜 아래 WITH 구문이 오류가 나는지 알 수가 없다!
 WITH AGG AS (
@@ -37,5 +37,5 @@ ORDER BY H.hacker_id;
 ```
 
 #### **LESSON & LEARN**
-
-* PARTITION을 사용하면 GROUP BY의 제약에서 벗어나 GROUP BY와 같은 효과를 낼 수 있다!
+* PARTITION을 사용하면 GROUP BY의 제약에서 벗어나 같은 효과를 낼 수 있음. #TODO: 유사점과 차이점 비교
+* 집계 함수를 OVER과 함께 윈도우 함수로 사용하면 기존 데이터를 그대로 유지한 채 새로운 집계 값 생성 가능.
